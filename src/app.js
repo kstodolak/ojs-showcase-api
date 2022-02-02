@@ -1,6 +1,7 @@
 const multer = require('multer');
 const fs = require('fs');
 const express = require('express');
+const cors = require('cors');
 
 const readNotes = require('./methods/readNotes.js');
 const getNote = require('./methods/getNote.js');
@@ -10,6 +11,7 @@ const deleteNote = require('./methods/deleteNote.js');
 //express initialization
 const app = express();
 const port = process.env.PORT || 3001;
+app.use(cors());
 
 app.get('/notes', ({ query }, response) => {
   try {
